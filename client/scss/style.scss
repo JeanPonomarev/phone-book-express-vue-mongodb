@@ -1,0 +1,46 @@
+[v-cloak] {
+  display: none;
+}
+
+body {
+  background: rgb(0,161,227);
+  background: linear-gradient(90deg, rgba(0,161,227,0.8) 0%, rgba(47,64,250,1) 100%);
+}
+
+.table {
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+  th, td {
+    padding: 15px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  thead {
+    th {
+      background-color: #55608f;
+    }
+  }
+}
+
+.custom-form {
+  border: solid #fff;
+  color: #fff;
+}
+
+.custom-form {
+  border: solid #fff;
+}
+
+.btn.delete {
+  padding: 0 5px;
+}
+
+.error-message {
+  color: #fff;
+  -webkit-text-stroke: 0.7px #d72f2f;
+}
