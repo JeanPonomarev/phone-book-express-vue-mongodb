@@ -1,5 +1,69 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const mongodb = require("mongodb");
+
+const router = express.Router();
+
+router.get("/api/getContacts", async (req, res) => {
+  const term = (req.query.term || "");
+
+  const contacts = await loadContactsCollection();
+
+  const query = {
+    $or: [
+      {
+        name: term
+      },
+      {
+        surname: term
+      },
+      {
+        phoneNumber: term
+      }
+    ]
+  };
+
+  if (term.length === 0) {
+    res.send(await contacts.find({}).toArray());
+  } else {
+    res.send(await contacts.find(query).toArray());
+  }
+});
+
+router.post("/api/addContact", async (req, res) => {
+  let contact = req.body.contact;
+
+  if (!contact) {
+    res.status(400);
+
+    res.send({
+      success: false,
+      message: "Wrong data in the request"
+    });
+
+    return;
+  }
+
+  if (!contact.name) {
+    res.status(400);
+
+    res.send({
+      success: false,
+      message: "Name field is absent in the request"
+    });
+
+    return;
+  }
+
+  if (!contact.surname) {
+    res.status(400);
+
+    res.send({
+      success: false,
+      message: "Surname field is absent in the request"
+    });
+
+    return;
+  }
 
   if (!contact.phoneNumber) {
     res.status(400);
