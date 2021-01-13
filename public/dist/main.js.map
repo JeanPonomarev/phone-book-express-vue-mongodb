@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://client/./js/phoneBook.js"],"names":["console","log"],"mappings":";;;;AAAAA,OAAO,CAACC,GAAR,CAAY,kBAAZ,E","file":"main.js","sourcesContent":["console.log(\"Hello Phone Book\");"],"sourceRoot":""}
