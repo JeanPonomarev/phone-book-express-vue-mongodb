@@ -21,7 +21,7 @@
                         <slot name="cancel-button-text"></slot>
                     </button>
 
-                    <button @click="ok" type="button" class="btn-primary">
+                    <button @click="ok" type="button" class="btn btn-primary">
                         <slot name="ok-button-text"></slot>
                     </button>
                 </div>
